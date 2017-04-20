@@ -16,3 +16,10 @@ def login():
 
     #else, render the login page.	
     return render_template('login.html',title='Sign_In',form=form, providers=app.config['OPENID_PROVIDERS'])
+
+@app.route('/index',methods = ['GET','POST'])
+
+def index():
+	user = {'nickname':'Jerry'}
+	posts = [{'author':{'nickname':'Jerry'},'body':'is awesome'}]
+	return render_template('index.html',title = 'Home',user=user,posts=posts)    
